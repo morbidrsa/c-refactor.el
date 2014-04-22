@@ -27,10 +27,6 @@
   (let ((text (replace-regexp-in-string " *$" "" (buffer-substring-no-properties region-start region-end))))
     (string-match "\n" (substring text -1))))
 
-(defun c-refactor-trim-newline-endings (string)
-  "Trims newline off front and back of STRING."
-  (replace-regexp-in-string "\\(^\n\\|\n$\\)" "" string))
-
 ;;;###autoload
 (defun c-refactor-extract-to-method (region-start region-end)
   "Extract region to method"
@@ -39,7 +35,7 @@
     (save-match-data
       (widen)
       (let ((ends-with-newline (c-refactor-ends-with-newline-p region-start region-end))
-	    (function-guts (c-refactor-trim-newline-endings (buffer-substring-no-properties region-start region-end)))
+	    (function-guts (buffer-substring-no-properties region-start region-end))
 	    (function-name (read-from-minibuffer "Method name? "))
 	    (function-return-type (read-from-minibuffer "Return type? ")))
 	(delete-region region-start region-end)
