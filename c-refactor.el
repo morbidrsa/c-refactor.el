@@ -16,14 +16,14 @@
       (define-key prefix-map (kbd "e") 'c-refactor-extract-to-method)
       (define-key map c-refactor-keymap-prefix prefix-map))
     map)
-  "Keymap to use in ruby refactor minor mode.")
+  "Keymap to use in C refactor minor mode.")
 
 
 (defvar c-refactor-mode-hook nil
   "Hooks run during mode start.")
 
 (defun c-refactor-ends-with-newline-p (region-start region-end)
-  "Return if last character os a newline ignoring trailing spaces."
+  "Return if last character is a newline ignoring trailing spaces."
   (let ((text (replace-regexp-in-string " *$" "" (buffer-substring-no-properties region-start region-end))))
     (string-match "\n" (substring text -1))))
 
