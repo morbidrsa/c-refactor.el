@@ -1,3 +1,40 @@
+;;; c-refactor.el -- A minor mode which presents various C refactoring helpers
+
+;; Copyright (C) 2014 Johannes Thumshirn
+
+;; Authors: Johannes Thumshirn <morbidrsa@gmail.com>
+;; Keywords: refactor C
+;; Version: 0.1
+;; URL: https://github.com/morbidrsa/c-refactor.el
+;; Package-Requires: ((cc-mode))
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; C Refactor is inspired by ruby-refactor by Andrew J Vargo <ajvargo@gmail.com>
+;; and Jeff Morgan <jeff.morgan@leandog.com> (https://github.com/ajvargo/ruby-refactor)
+
+;; I've only implemented one refactoring yet
+;; - Extract to Method
+
+;;; TODOs
+;; When extracting to a function, create needed variables in the new
+;; function. Varibles that are used in the old and new function are passeed as
+;; parameters. Variables that are only used in the new function are removed from
+;; the old function and re-created in the new function.
+
 (require 'cc-mode)
 
 (defgroup c-refactor nil
